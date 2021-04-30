@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const config = require('./config/config');
 const app = express();
+var router = express.Router();
 const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 5000
@@ -28,6 +29,21 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+
+// appel des routes 
+
+app.use('/category', router);
+require('./controllers/CategoryControllers')(router);
+
+app.use('/annonces', router);
+require('./controllers/AnnoncesController')(router);
+
+app.use('/privilege', router);
+require('./controllers/PrivilegeController')(router);
+
+app.use('/user', router);
+require('./controllers/userController')(router);
 
 
 
