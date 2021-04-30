@@ -7,7 +7,7 @@ var carimgs = ["tamtampion","https://res.cloudinary.com/lepiston/image/fetch/h_2
 module.exports = function (app) {
   console.log("entre_____________________________controleurcategory")
   app.post('/addcategory',CategoryModel.addCategory);
-    app.get('/', CategoryModel.showAll);
+    app.get('/read', CategoryModel.showAll);
 
 
 }
