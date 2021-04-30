@@ -12,7 +12,8 @@ function showAll(req, res) {
 }
 function addPrivilege (req,res){
 
-       let donnee = req.body;
+       let donnee = req;
+       console.log(req.body)
        var _privilege= new DaoPrivilege(donnee);
 
        _privilege.save(function (err, donnee) {
