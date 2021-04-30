@@ -4,11 +4,42 @@ var carimgs = ["tabueromeo marie","https://res.cloudinary.com/lepiston/image/fet
 
 
 function showAll(req, res) {
-    console.log(" enter 3");
-    //if (!req.body.limit) {
-        //Le cas où l'email ou bien le password ne serait pas soumit ou nul
-        res.send(carimgs);
-        //daologement.addLogement();
+    console.log("privilèges")
+    var findPrivilege = new Promise(function (resolve, reject) {
+    
+        DaoPrivilege.find(null, function (err, result) {
+          if (err) {
+              reject(500);
+          } else {
+            resolve(result)
+          }
+      })
+  })
+
+  findPrivilege.then(function (result) {
+
+//console.log(result);
+      res.send(result)
+  }, function (error) {
+
+      switch (error) {
+          case 500:
+              res.status(500).json({
+                  "text": "Erreur interne"
+              })
+              break;
+          case 204:
+              res.status(204).json({
+                  "text": "errur"
+              })
+              break;
+          default:
+              res.status(500).json({
+                  "text": "Erreur interne"
+              })
+      }
+  });
+
 }
 function addPrivilege (req,res){
 
@@ -22,7 +53,7 @@ function addPrivilege (req,res){
                         "text": "Erreur interne"
                     })
                 } else {
-                    console.log("ajout avec sucess")
+                    console.log("ajout des privilèges")
                     res.status(200).json({
                         "text": "Succès--- privilege"
                     })
