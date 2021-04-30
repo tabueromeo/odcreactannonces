@@ -15,7 +15,7 @@ function addPrivilege (req,res){
        let donnee = req.body;
        var _privilege= new DaoPrivilege(donnee);
 
-       _privilege.save(function (err, user) {
+       _privilege.save(function (err, donnee) {
                 if (err) {
                     res.status(500).json({
                         "text": "Erreur interne"
@@ -23,7 +23,7 @@ function addPrivilege (req,res){
                 } else {
                     console.log("ajout avec sucess")
                     res.status(200).json({
-                        "text": "Succès------------------------------------------"
+                        "text": "Succès--- privilege"
                     })
                 }
             })

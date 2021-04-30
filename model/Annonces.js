@@ -38,7 +38,7 @@ function showAll(req,res){
             if (err) {
                 reject(500);
             } else {
-              
+              console.log(result)
               resolve(result)
             }
         })

@@ -6,7 +6,6 @@ var categorychema = new mongoose.Schema({
   description : String,
   createdAt:{ type : Date, default : Date.now },
   userId : String,
-    disable: Boolean
   });
 
 

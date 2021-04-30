@@ -17,7 +17,7 @@ function showAll(req, res) {
        let donnee = req.body;
        var _category= new DaoCategory(donnee);
 
-       _category.save(function (err, user) {
+       _category.save(function (err, donnee) {
                 if (err) {
                     res.status(500).json({
                         "text": "Erreur interne"
@@ -25,7 +25,7 @@ function showAll(req, res) {
                 } else {
                     console.log("ajout avec sucess")
                     res.status(200).json({
-                        "text": "Succès------------------------------------------"
+                        "smg": "Succès"
                     })
                 }
             })
