@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const app = express();
+const mongoose = require("mongoose");
+
 const PORT = process.env.PORT || 5000
 
 
@@ -11,6 +13,7 @@ mongoose.connect(config.CURRENT_BD_PATH).then(() => {
   console.log('Error while DB connecting');
   console.log(e);
 });
+
 app.use(express.static(path.join(__dirname, 'public')))
   .get('/', (req, res) => res.send(" Real time POS3 web app running."))
 
