@@ -5,11 +5,42 @@ var Category = require('../dao/DaoCategory')
 
 
 function showAll(req, res) {
-    console.log(" enter 3");
-    //if (!req.body.limit) {
-        //Le cas où l'email ou bien le password ne serait pas soumit ou nul
-        res.send(carimgs);
-        //daologement.addLogement();
+ 
+    var findCategory = new Promise(function (resolve, reject) {
+    
+      DaoCategory.find( null, function (err, result) {
+          if (err) {
+              reject(500);
+          } else {
+            resolve(result)
+          }
+      })
+  })
+
+  findCategory.then(function (result) {
+
+//console.log(result);
+      res.send(result)
+  }, function (error) {
+
+      switch (error) {
+          case 500:
+              res.status(500).json({
+                  "text": "Erreur interne"
+              })
+              break;
+          case 204:
+              res.status(204).json({
+                  "text": "errur"
+              })
+              break;
+          default:
+              res.status(500).json({
+                  "text": "Erreur interne"
+              })
+      }
+  });
+
 }
 
  function addCategory (req,res){
