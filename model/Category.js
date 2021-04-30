@@ -5,7 +5,7 @@ var Category = require('../dao/DaoCategory')
 
 
 function showAll(req, res) {
- 
+    console.log("category")
     var findCategory = new Promise(function (resolve, reject) {
     
       DaoCategory.find( null, function (err, result) {
