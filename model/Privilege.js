@@ -1,5 +1,4 @@
 const DaoPrivilege = require('../dao/DaoPrivilege');
-var Category = require('../dao/DaoCategory')
 var carimgs = ["tabueromeo marie","https://res.cloudinary.com/lepiston/image/fetch/h_270/http://lepiston.fr/files/QQB3oowxErbkcvgpYopkodBp.jpeg","https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"];
 
 
