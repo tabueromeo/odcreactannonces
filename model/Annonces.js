@@ -29,7 +29,7 @@ function addannonce(req, res) {
 
 
 
-function showAll(req,res){
+function showAllAnnonce(req,res){
 
   console.log("entréeeee");
       var findAnnonce = new Promise(function (resolve, reject) {
@@ -70,7 +70,7 @@ function showAll(req,res){
 }
 
 
-function showByCriteria(req, res) {
+function showByCriteriaAnnonce(req, res) {
   
   if (!req.query.ville || !req.query.type) {
 
@@ -152,7 +152,7 @@ function deleteannonce(req,res){
 }
 
 
-function update(req,res){
+function updateAnnonce(req,res){
 
 
   //  console.log(req.body)
@@ -181,7 +181,7 @@ function update(req,res){
 
 
 }
-function showOne(req, res) {
+function showOneAnnonce(req, res) {
   
 
  
@@ -242,8 +242,8 @@ function showOne(req, res) {
 //On exporte nos deux fonctions
 
 exports.addannonce = addannonce;
-exports.showAll = showAll;
-exports.showOne = showOne;
-exports.update=update;
-exports.showByCriteria = showByCriteria;
+exports.showAllAnnonce = showAllAnnonce;
+exports.showOneAnnonce = showOneAnnonce;
+exports.updateAnnonce=updateAnnonce;
+exports.showByCriteriaAnnonce = showByCriteriaAnnonce;
 exports.deleteannonce = deleteannonce;
